@@ -73,7 +73,8 @@
             <p>{{ projeto.descricao }}</p>
         </div>
         <div class="card-action">
-            <a href="#">This is a link</a>
+            <!-- <a href="./{{ projeto.id }}">This is a link</a> -->
+            <a href="{% url projetos:detalhes_projeto projeto.id %}">This is a link</a>
         </div>
       </div>
     </div>
@@ -84,3 +85,15 @@
 
 </body>
 </html>
+
+<!-- <script>
+
+  function redirecionar() {
+    console.log("index");
+  }
+
+  // function redirecionar(index) {
+  //   console.log(index);
+  // }
+
+</script> -->
