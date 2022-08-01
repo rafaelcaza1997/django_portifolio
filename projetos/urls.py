@@ -3,7 +3,7 @@ from django.urls import include, path
 from projetos import views
 
 
-app_name = 'projetos'
+app_name = 'view_projetos'
 
 urlpatterns = [
     path('', views.view_all_projects),

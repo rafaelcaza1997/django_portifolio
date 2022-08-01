@@ -1,0 +1,33 @@
+{% extends 'projetos/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="row valign-wrapper">
+
+
+
+      <div class="col s2"></div>
+      {% for projeto in projetos %}
+      
+      <div class="col s4">
+          <div class="card">
+              <div class="card-image">
+                  <img class="materialboxed" width="120" src = "{% static projeto.imagem %}" >
+          <span class="card-title">{{ projeto.titulo }}</span>
+        </div>
+        <div class="card-content">
+            <p>{{ projeto.descricao }}</p>
+        </div>
+        <div class="card-action">
+            <a href="{% url 'view_projetos:detalhes_projeto' projeto.id %}">Detalhes</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+
+{% endblock %}
+<!-- <a href="./{{ projeto.id }}">This is a link</a> -->
