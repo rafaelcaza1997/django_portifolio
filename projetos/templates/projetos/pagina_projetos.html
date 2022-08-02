@@ -10,31 +10,33 @@
 
 <div class="col s3"></div>
 
-<div class="col_leitura col s8">
+<div class="col s8 col_leitura">
 
     <br>
     <h2 class="center-align">Projetos</h2>
     <br>
-    {% for projeto in projetos %}
-      
-    <div class="col s6">
-        <div class="card hoverable">
-            <div class="card-image">
-                <img class="materialboxed" width="120" src = "{% static projeto.imagem %}" >
-                <span class="card-title">{{ projeto.titulo }}</span>
-                <a href="{% url 'view_projetos:detalhes_projeto' projeto.id %}" class="btn-floating halfway-fab btn-large waves-effect waves-light light-blue lighten-4"><i class="material-icons">add</i></a>
+    {% for projeto in projetos %}    
+        <div class="col s6" >
+            <div class="card hoverable">
+                <div class="card-image">
+                    <img class="materialboxed" width="120" src = "{% static projeto.imagem %}" >
+                    <span class="card-title">{{ projeto.titulo }}</span>
+                    <a href="{% url 'view_projetos:detalhes_projeto' projeto.id %}" class="btn-floating halfway-fab btn-large waves-effect waves-light light-blue lighten-4" ><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                    <p>{{ projeto.descricao }}</p>
+                </div>
+                <!-- <div class="card-action">
+                    <a href="{% url 'view_projetos:detalhes_projeto' projeto.id %}">Detalhes</a>
+                </div> -->
             </div>
-            <div class="card-content">
-                <p>{{ projeto.descricao }}</p>
-            </div>
-            <!-- <div class="card-action">
-                 <a href="{% url 'view_projetos:detalhes_projeto' projeto.id %}">Detalhes</a>
-            </div> -->
         </div>
-    </div>
     {% endfor %}
+
 </div>
+
 <div class="col s3"></div>
+
 </div>
 
 
