@@ -6,6 +6,7 @@ from django.db import models
 class Projeto(models.Model):
     titulo = models.CharField(max_length = 100)
     descricao = models.TextField()
+    artigo = models.TextField(default = "")
     tecnologia = models.CharField(max_length = 100)
     # imagem = models.FilePathField(path = '/projetos/img')
     imagem = models.CharField(max_length = 100)

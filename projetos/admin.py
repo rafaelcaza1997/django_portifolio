@@ -8,3 +8,7 @@ class ProjetoAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Projeto, ProjetoAdmin)
+
+admin.site.site_header = "APP Portfólio"
+admin.site.site_title = "Admin"
+admin.site.index_title = " Painel de controle "

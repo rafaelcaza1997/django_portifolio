@@ -17,4 +17,6 @@ def project_detail(request, pk):
     # return HttpResponse("Teste index")
     projeto = Projeto.objects.get(pk = pk)
 
-    return render(request, 'projetos/detalhes.html', context = {'projeto' : projeto})
+    return render(request, 'projetos/detalhes.html', context = {'projeto' : projeto, 'lista_tech' : projeto.tecnologia.split(";")})
+
+    

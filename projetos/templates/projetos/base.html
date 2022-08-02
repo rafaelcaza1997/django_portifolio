@@ -9,10 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+    <link rel="stylesheet" type="text/css" href='{% static "css/home_stylesheet.css" %}'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            
+
 </head>
 <body>
     
@@ -24,18 +25,80 @@
     <div class="nav-wrapper grey darken-3">
         <a href="#!" class="brand-logo center">Logo</a>
         <ul class="left hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li class="active"><a href="collapsible.html">JavaScript</a></li>
+        <li><a href="{% url 'view_projetos:projetos' %}">Projetos</a></li>
+        <li><a href="../">Home</a></li>
         </ul>
     </div>
 </nav>
+
+
+<div id="background" class="background"></div>
 
 {% block content %}
 
 
 {% endblock %}
 
-
 </body>
+
+{% block script %}
+
+<script>
+    document.body.onload = adcElemento;
+    
+    function adcElemento () {
+    
+    var altura = window.screen.height;
+    var largura = window.screen.width;
+    
+    let quadrante = 300;
+    
+    var setores_hor = largura/quadrante;
+    var setores_ver = altura/quadrante;
+    
+    
+    
+        for (let i = 0; i < setores_hor; i++) {
+            for (let j = 0; j < setores_ver; j++) {
+                const el = document.createElement('div');
+                el.classList.add('stars');
+                
+                el.style.width="2px";
+                el.style.height="2px";
+    
+                el.style.position="relative";
+                let num_h = (Math.random()*quadrante)+(quadrante*i);
+                el.style.left= num_h.toString()+"px";
+    
+                let num_v = (Math.random()*quadrante)+(quadrante*j);
+                el.style.top= num_v.toString()+"px";
+    
+                const box = document.getElementById('background');
+                box.appendChild(el);
+    
+    
+                const el_2 = document.createElement('div');
+                el_2.classList.add('stars2');
+    
+                el_2.style.width="1px";
+                el_2.style.height="1px";
+    
+                el_2.style.position="relative";
+    
+    
+                num_h = (Math.random()*quadrante)+(quadrante*i);
+                el_2.style.left= num_h.toString()+"px";
+                
+                num_v = (Math.random()*quadrante)+(quadrante*j);
+                el_2.style.top= num_v.toString()+"px";
+                box.appendChild(el_2);
+            }
+        }
+    
+    }
+    </script>
+    
+{% endblock %}
+
 </html>
+
